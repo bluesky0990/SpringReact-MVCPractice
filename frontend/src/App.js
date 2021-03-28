@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Login from './views/Login';
-import Footer from './views/components/Footer';
+import Lobby from './views/Lobby';
+import Footer from './views/includes/Footer';
 
-function App() {
+export default function App() {
+  const [login, setLogin] = useState(false);
+  const handleLoginSuccess = () => { setLogin(true) };
+  const handleLogout = () => { setLogin(false) };
   return (
     <div className="App">
-      <Login/>
+      {login ? <Lobby/> : <Login/>}
       <Footer/>
     </div>
   );
 }
-
-export default App;

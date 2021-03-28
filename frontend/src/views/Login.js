@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import { FormControlLabel, FormLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select } from '@material-ui/core';
+import { FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select } from '@material-ui/core';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -38,13 +38,13 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  export default function Login() {
+export default function Login(props) {
     const classes = useStyles();
-    
+
     const [signUpOpen, setSignUpOpen] = useState(false);
     const handleSignUpClickOpen = () => { setSignUpOpen(true) };
     const handleSignUpClose = () => { setSignUpOpen(false) };
-    
+
     const [year, setYear] = useState(0);
     const handleChangeYear = (event) => { setYear(event.target.value) };
     const [month, setMonth] = useState(0);
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     for(let i = date; i >= 1905; i--) { years.push(i) }
     for(let i = 1; i <= 12; i++) { months.push(i) }
     for(let i = 1; i <= 31; i++) { days.push(i) }
-    
+
     const yearList = years.map(year => <MenuItem value={year}>{year}</MenuItem>)
     const monthList = months.map(month => <MenuItem value={month}>{month}월</MenuItem>)
     const dayList = days.map(day => <MenuItem value={day}>{day}</MenuItem>)

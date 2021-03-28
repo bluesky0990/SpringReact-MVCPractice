@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 
 
-function Footer() {
+export default function Footer() {
     return(
         <Box component="div">
             <br/>
@@ -14,5 +14,3 @@ function Footer() {
         </Box>
     );
 }
-
-export default Footer;
